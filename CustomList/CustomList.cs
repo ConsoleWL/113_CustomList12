@@ -184,7 +184,32 @@ namespace CustomList
             items = tempArray; 
         }
 
-        void HelperIntArraySort(int[] toSort)
+        //void Check<T>(T[] ourArray) where T : struct
+        //{
+        //    items = ourArray;
+        //}
+
+
+        public void Sort<T>() where T : struct
+        {
+            
+            T temp;
+
+            for (int i = 0; i < count - 1; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    if (items[i] > items[j])
+                    {
+                        temp = items[i];
+                        items[i] = items[j];
+                        items[j] = temp;
+                    }
+                }
+            }
+        }
+
+        void HelperIntArraySort<T>(T[] toSort) where T : struct
         {
             int temp;
             for (int i = 0; i < count - 1; i++)

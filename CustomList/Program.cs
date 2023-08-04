@@ -169,6 +169,8 @@
                 Console.WriteLine(item);
             }
 
+            List<int> numbs = new List<int> { 2, 3, 56, 4, 32, };
+            numbs.Sort
 
             
 
