@@ -68,12 +68,50 @@ namespace CustomList
             count++;
         }
 
+        // If Method returns -1 . Doesn't contain
+        // Id method returns a number it means the spot where is the same item;
+        int HelperEquals(T item)
+        {
+            int number = -1;
+            for (int i = 0; i < count; i++)
+            {
+                if (items[i].Equals(item))
+                {
+                    number = i;
+                    i = count;
+                }
+            }
+            return number;
+        }
         public bool Remove(T item)
         {
-            //If 'item' exists in the 'items' array, remove its first instance
-            //Any items coming after the removed item should be shifted down so there is no empty index.
-            //If 'item' was removed, return true. If no item was removed, return false.
-            return false;
+            int result = HelperEquals(item);
+
+            if (result == -1)
+            {
+                return false;
+            }
+            else
+            {
+                T[] tempArray = new T[capacity];
+                int tempCount = 0;
+
+                for (int i = 0; i < result; i++)
+                {
+                    tempArray[i] = items[i];
+                    tempCount++;
+                }
+
+                for (int i = tempCount; i < count - 1; i++)
+                {
+                    tempArray[i] = items[tempCount + 1];
+                    tempCount++;
+                }
+                count = tempCount;
+                items = tempArray;
+
+                return true;
+            }
         }
 
         public override string ToString()
