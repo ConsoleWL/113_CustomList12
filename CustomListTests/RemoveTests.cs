@@ -101,5 +101,19 @@ namespace CustomListTests
             //Assert
             Assert.IsTrue(result1);
         }
+
+        [TestMethod]
+        public void Remove_CouldNotRemoveItem_ReturnFalse()
+        {
+            // Arrange
+            CustomList<int> numbers = new CustomList<int> { 1, 2, 3, 4, 5 };
+            bool results = true;
+
+            // Set
+            results = numbers.Remove(7);
+
+            // Assert
+            Assert.IsFalse(results);
+        }
     }
 }
