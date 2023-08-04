@@ -43,11 +43,29 @@ namespace CustomList
             }
         }
 
+        public void HelperIncreaseArray()
+        {
+            T[] tempArray = new T[capacity * 2];
+
+            for (int i = 0; i < count; i++)
+            {
+                tempArray[i] = items[i];
+            }
+
+            capacity *= 2;
+
+            items = tempArray;
+        }
+
         public void Add(T item)
         {
-            //'item' parameter should be added to internal 'items' array
-            //if items array is at capacity, double capacity and create new array
-            //transfer all items to new array
+            if (count == capacity)
+            {
+                HelperIncreaseArray();
+            }
+
+            items[count] = item;
+            count++;
         }
 
         public bool Remove(T item)
