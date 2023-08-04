@@ -25,6 +25,24 @@ namespace CustomList
         }
 
         //Member Methods (CAN DO)
+        public T this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < count)
+                    return items[index];
+                else
+                    throw new Exception($"Can't get an item. Out of list range. The length of list is {items.Length}");
+            }
+            set
+            {
+                if (index >= 0 && index < count)
+                    items[index] = value;
+                else
+                    throw new Exception($"Can't set an item. Out of list range. The length of list is {items.Length}");
+            }
+        }
+
         public void Add(T item)
         {
             //'item' parameter should be added to internal 'items' array
