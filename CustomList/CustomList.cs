@@ -13,12 +13,15 @@ namespace CustomList
         private int capacity;
         private int count;
 
+        public int Count { get => count; }
+        public int Capacity { get => capacity; private set => capacity = value; }
+
         //Constructor
         public CustomList()
         {
-            //capacity = 
-            //count =
-            //items = 
+            count = 0;
+            capacity = 4;
+            items = new T[capacity];
         }
 
         //Member Methods (CAN DO)
