@@ -155,6 +155,54 @@ namespace CustomList
             return firstList;
         }
 
+        //public void Zip(CustomList<T> zipper) where T : int
+        //{
+        //    int length = count + zipper.count;
 
+        //    T[] tempArray = new T[length];
+
+        //    int counter = 0;
+
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        tempArray[i] = items[i];
+        //        counter++;
+        //    }
+
+        //    for (int j = 0; j < zipper.count; j++)
+        //    {
+        //        tempArray[counter] = zipper[j];
+        //        counter++;
+        //    }
+
+        //    capacity = length;
+
+        //    items = tempArray;
+
+        //    HelperIntArraySort(items);
+
+        //    //for (int i = 0; i < zipper.count + count; i++)
+        //    //{
+        //    //    zipper.Add(items[i]);
+        //    //}
+        //    //count = zipper.count + count;
+        //}
+
+        //void HelperIntArraySort(int[] toSort)
+        //{
+        //    int temp;
+        //    for (int i = 0; i < count -1; i++)
+        //    {
+        //        for (int j = 0; j < count; j++)
+        //        {
+        //            if (toSort[i] > toSort[j])
+        //            {
+        //                temp = toSort[i];
+        //                toSort[i] = toSort[j];
+        //                toSort[j] = temp;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
