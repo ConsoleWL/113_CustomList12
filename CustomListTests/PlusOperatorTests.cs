@@ -73,6 +73,20 @@ namespace CustomListTests
             Assert.IsTrue(result);
         }
 
+        [TestMethod]
+        public void PlusOperator_CountIncreasesWhenAddigTwoLists_CountEqualsFive()
+        {
+            //Arrange
+            CustomList<int> numbers1 = new CustomList<int> { 1, 2, 3 };
+            CustomList<int> numbers2 = new CustomList<int> { 4, 4 };
+
+            //Set
+            CustomList<int> result = numbers1 + numbers2;
+
+            //Assert
+            Assert.AreEqual(5, result.Count);
+        }
+
 
 
     }
