@@ -81,5 +81,18 @@ namespace CustomListTests
             Assert.AreEqual("Bob", names[3]);
 
         }
+
+        [TestMethod]
+        public void Add_CapacityIncreasingAfterListIsResized_CapacityEqualsEight()
+        {
+            //Arrange
+            CustomList<int> numbers = new CustomList<int> { 1, 2, 3, 4 };
+
+            //Set
+            numbers.Add(5);
+
+            //Assert
+            Assert.AreEqual(8, numbers.Capacity);
+        }
     }
 }

@@ -105,6 +105,49 @@
             //{
             //    Console.WriteLine(n);
             //}
+
+
+            //// First CustomList has a four values stored in it:
+            //CustomList<int> list1 = new CustomList<int> { 1, 2, 3, 4 };
+
+            //// Second CustomList has 2 values stores in it
+            //CustomList<int> list2 = new CustomList<int> { 2, 4 };
+
+            //// A new CustimList has to be created where we will be storing the results
+            //CustomList<int> result;
+
+            //// Now list one is looking for any matching occurances in the second list
+            //// We can see its number 2 and 4
+            //// - operator removes those items from the list
+            //// The resuls are stored in the new CustomList<int> result
+            //result = list1 - list2;
+
+            ////Displaying the results
+
+            //Console.WriteLine(result.ToString());
+
+
+
+            ////Now lets do the same with string type
+            //CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim" };
+
+            //CustomList<string> names2 = new CustomList<string> { "Bob", "Tim" };
+
+            //CustomList<string> namesResult = names1 - names2;
+
+            //foreach (string name in namesResult)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+
+
+            //CustomList<int> numbers1 = new CustomList<int> { 1, 2, 3, 4 };
+            //CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim" };
+
+            //CustomList<int> resutl = numbers1 - names1;
+
+
         }
     }
 }
