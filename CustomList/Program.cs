@@ -147,6 +147,15 @@
 
             //CustomList<int> resutl = numbers1 - names1;
 
+            CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim" };
+            CustomList<string> names2 = new CustomList<string> { "Bo", "Mik", "To", "Tim" };
+
+            names1.Zip(names2);
+
+            foreach (var item in names1)
+            {
+                Console.WriteLine(item);
+            }
 
         }
     }

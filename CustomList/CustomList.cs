@@ -155,54 +155,85 @@ namespace CustomList
             return firstList;
         }
 
-        //public void Zip(CustomList<T> zipper) where T : int
-        //{
-        //    int length = count + zipper.count;
+        public void Zip(CustomList<T> zipper)
+        {
+            //CustomList<T> tempList = new CustomList<T>();
 
-        //    T[] tempArray = new T[length];
+            
 
-        //    int counter = 0;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    tempList.Add(items[i]);
+            //}
 
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        tempArray[i] = items[i];
-        //        counter++;
-        //    }
+            //for (int i = 0; i < zipper.count; i++)
+            //{
+            //    tempList.Add(zipper[i]);
+            //}
 
-        //    for (int j = 0; j < zipper.count; j++)
-        //    {
-        //        tempArray[counter] = zipper[j];
-        //        counter++;
-        //    }
+            //T[] tempArray = new T[tempList.count];
 
-        //    capacity = length;
+            //for (int i = 0; i < tempList.count; i++)
+            //{
+            //    tempArray[i] = tempList[i];
+            //}
 
-        //    items = tempArray;
 
-        //    HelperIntArraySort(items);
 
-        //    //for (int i = 0; i < zipper.count + count; i++)
-        //    //{
-        //    //    zipper.Add(items[i]);
-        //    //}
-        //    //count = zipper.count + count;
-        //}
+            // what the hell!!!!
+            //if (tempArray[1] > tempArray[2])
 
-        //void HelperIntArraySort(int[] toSort)
-        //{
-        //    int temp;
-        //    for (int i = 0; i < count -1; i++)
-        //    {
-        //        for (int j = 0; j < count; j++)
-        //        {
-        //            if (toSort[i] > toSort[j])
-        //            {
-        //                temp = toSort[i];
-        //                toSort[i] = toSort[j];
-        //                toSort[j] = temp;
-        //            }
-        //        }
-        //    }
-        //}
+            //HelperIntArraySort(tempArray);
+
+
+
+            //int length = count + zipper.count;
+
+            //T[] tempArray = new T[length];
+
+            //int counter = 0;
+
+            //for (int i = 0; i < count; i++)
+            //{
+            //    tempArray[i] = items[i];
+            //    counter++;
+            //}
+
+            //for (int j = 0; j < zipper.count; j++)
+            //{
+            //    tempArray[counter] = zipper[j];
+            //    counter++;
+            //}
+
+            //capacity = length;
+
+            //items = tempArray;
+
+            //HelperIntArraySort(items);
+
+            //for (int i = 0; i < count; i++)
+            //{
+            //    zipper.Add(items[i]);
+            //}
+            //count = zipper.count + count;
+            //items = zipper;
+        }
+
+        void HelperIntArraySort(int[] toSort)
+        {
+            int temp;
+            for (int i = 0; i < count - 1; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    if (toSort[i] > toSort[j])
+                    {
+                        temp = toSort[i];
+                        toSort[i] = toSort[j];
+                        toSort[j] = temp;
+                    }
+                }
+            }
+        }
     }
 }
