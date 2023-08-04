@@ -94,5 +94,19 @@ namespace CustomListTests
             //Assert
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void MinusOperator_RemovesItemsFromTheList_CountEqualsTree()
+        {
+            //Arrange
+            CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim", "Bill" };
+            CustomList<string> names2 = new CustomList<string> { "Tom", "Tim" };
+
+            //Set 
+            CustomList<string> result = names1 - names2;
+
+            //Assert
+            Assert.AreEqual(3, result.Count);
+        }
     }
 }
