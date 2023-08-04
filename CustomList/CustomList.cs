@@ -157,66 +157,31 @@ namespace CustomList
 
         public void Zip(CustomList<T> zipper)
         {
-            //CustomList<T> tempList = new CustomList<T>();
+            T[] tempArray = new T[count + zipper.count];
 
-            
+            int indexTempArray = 0;
+            int indexItems = 0;
+            int indexZipper = 0;
 
-            //for (int i = 0; i < count; i++)
-            //{
-            //    tempList.Add(items[i]);
-            //}
+            for (int i = 0; i < count + zipper.count; i++)
+            {
+                if (indexItems < count)
+                {
+                    tempArray[indexTempArray] = items[indexItems];
+                    indexTempArray++;
+                    indexItems++;
+                }
 
-            //for (int i = 0; i < zipper.count; i++)
-            //{
-            //    tempList.Add(zipper[i]);
-            //}
+                if (indexZipper < zipper.count)
+                {
+                    tempArray[indexTempArray] = zipper[indexZipper];
+                    indexTempArray++;
+                    indexZipper++;
+                }
+            }
 
-            //T[] tempArray = new T[tempList.count];
-
-            //for (int i = 0; i < tempList.count; i++)
-            //{
-            //    tempArray[i] = tempList[i];
-            //}
-
-
-
-            // what the hell!!!!
-            //if (tempArray[1] > tempArray[2])
-
-            //HelperIntArraySort(tempArray);
-
-
-
-            //int length = count + zipper.count;
-
-            //T[] tempArray = new T[length];
-
-            //int counter = 0;
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    tempArray[i] = items[i];
-            //    counter++;
-            //}
-
-            //for (int j = 0; j < zipper.count; j++)
-            //{
-            //    tempArray[counter] = zipper[j];
-            //    counter++;
-            //}
-
-            //capacity = length;
-
-            //items = tempArray;
-
-            //HelperIntArraySort(items);
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    zipper.Add(items[i]);
-            //}
-            //count = zipper.count + count;
-            //items = zipper;
+            count += zipper.count;
+            items = tempArray; 
         }
 
         void HelperIntArraySort(int[] toSort)
@@ -235,5 +200,66 @@ namespace CustomList
                 }
             }
         }
+
+        //CustomList<T> tempList = new CustomList<T>();
+
+
+
+        //for (int i = 0; i < count; i++)
+        //{
+        //    tempList.Add(items[i]);
+        //}
+
+        //for (int i = 0; i < zipper.count; i++)
+        //{
+        //    tempList.Add(zipper[i]);
+        //}
+
+        //T[] tempArray = new T[tempList.count];
+
+        //for (int i = 0; i < tempList.count; i++)
+        //{
+        //    tempArray[i] = tempList[i];
+        //}
+
+
+
+        // what the hell!!!!
+        //if (tempArray[1] > tempArray[2])
+
+        //HelperIntArraySort(tempArray);
+
+
+
+        //int length = count + zipper.count;
+
+        //T[] tempArray = new T[length];
+
+        //int counter = 0;
+
+        //for (int i = 0; i < count; i++)
+        //{
+        //    tempArray[i] = items[i];
+        //    counter++;
+        //}
+
+        //for (int j = 0; j < zipper.count; j++)
+        //{
+        //    tempArray[counter] = zipper[j];
+        //    counter++;
+        //}
+
+        //capacity = length;
+
+        //items = tempArray;
+
+        //HelperIntArraySort(items);
+
+        //for (int i = 0; i < count; i++)
+        //{
+        //    zipper.Add(items[i]);
+        //}
+        //count = zipper.count + count;
+        //items = zipper;
     }
 }

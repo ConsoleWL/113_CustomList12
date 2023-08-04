@@ -147,8 +147,10 @@
 
             //CustomList<int> resutl = numbers1 - names1;
 
-            CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim" };
-            CustomList<string> names2 = new CustomList<string> { "Bo", "Mik", "To", "Tim" };
+
+
+            CustomList<string> names1 = new CustomList<string> { "AAA", "CCC", "EEE"};
+            CustomList<string> names2 = new CustomList<string> { "BBB", "DDD", "FFF"};
 
             names1.Zip(names2);
 
@@ -156,6 +158,19 @@
             {
                 Console.WriteLine(item);
             }
+
+            CustomList<int> numbers1 = new CustomList<int> { 1, 3, 5 };
+            CustomList<int> numbers2 = new CustomList<int> { 2, 4, 6 };
+
+            numbers1.Zip(numbers2);
+
+            foreach (var item in numbers1)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            
 
         }
     }
