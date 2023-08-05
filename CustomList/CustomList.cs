@@ -46,14 +46,14 @@ namespace CustomList
 
         public void HelperIncreaseArray()
         {
-            T[] tempArray = new T[capacity * 2];
+            capacity *= 2;
+
+            T[] tempArray = new T[capacity];
 
             for (int i = 0; i < count; i++)
             {
                 tempArray[i] = items[i];
             }
-
-            capacity *= 2;
 
             items = tempArray;
         }
@@ -190,41 +190,41 @@ namespace CustomList
         //}
 
 
-        public void Sort<T>() where T : struct
-        {
+        //public void Sort<T>() where T : struct
+        //{
             
-            T temp;
+        //    T temp;
 
-            for (int i = 0; i < count - 1; i++)
-            {
-                for (int j = 0; j < count; j++)
-                {
-                    if (items[i] > items[j])
-                    {
-                        temp = items[i];
-                        items[i] = items[j];
-                        items[j] = temp;
-                    }
-                }
-            }
-        }
+        //    for (int i = 0; i < count - 1; i++)
+        //    {
+        //        for (int j = 0; j < count; j++)
+        //        {
+        //            if (items[i] > items[j])
+        //            {
+        //                temp = items[i];
+        //                items[i] = items[j];
+        //                items[j] = temp;
+        //            }
+        //        }
+        //    }
+        //}
 
-        void HelperIntArraySort<T>(T[] toSort) where T : struct
-        {
-            int temp;
-            for (int i = 0; i < count - 1; i++)
-            {
-                for (int j = 0; j < count; j++)
-                {
-                    if (toSort[i] > toSort[j])
-                    {
-                        temp = toSort[i];
-                        toSort[i] = toSort[j];
-                        toSort[j] = temp;
-                    }
-                }
-            }
-        }
+        //void HelperIntArraySort<T>(T[] toSort) where T : struct
+        //{
+        //    int temp;
+        //    for (int i = 0; i < count - 1; i++)
+        //    {
+        //        for (int j = 0; j < count; j++)
+        //        {
+        //            if (toSort[i] > toSort[j])
+        //            {
+        //                temp = toSort[i];
+        //                toSort[i] = toSort[j];
+        //                toSort[j] = temp;
+        //            }
+        //        }
+        //    }
+        //}
 
         //CustomList<T> tempList = new CustomList<T>();
 
