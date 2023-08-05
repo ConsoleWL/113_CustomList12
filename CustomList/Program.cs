@@ -66,17 +66,19 @@
             //Console.WriteLine(numbers2.ToString());
 
             //Arrange
-            //CustomList<string> names = new CustomList<string>();
-            //names.Add("Bob");
-            //names.Add("Nik");
-            //names.Add("Tom");
+            CustomList<string> names = new CustomList<string>();
+            names.Add("Boba");
+            names.Add("Nik");
+            names.Add("Tom");
             //foreach (var item in names)
             //{
             //    Console.WriteLine(item);
             //}
 
             ////Set
-            //names.Remove("Bob");
+            
+            bool result = names.Remove("Bob");
+            Console.WriteLine(result);
             //result1 = "Bob" == names[0]; ;
 
             ////Assert
@@ -149,28 +151,28 @@
 
 
 
-            CustomList<string> names1 = new CustomList<string> { "AAA", "CCC", "EEE"};
-            CustomList<string> names2 = new CustomList<string> { "BBB", "DDD", "FFF"};
+            //CustomList<string> names1 = new CustomList<string> { "AAA", "CCC", "EEE"};
+            //CustomList<string> names2 = new CustomList<string> { "BBB", "DDD", "FFF"};
 
-            names1.Zip(names2);
+            //names1.Zip(names2);
 
-            foreach (var item in names1)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in names1)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            CustomList<int> numbers1 = new CustomList<int> { 1, 3, 5 };
-            CustomList<int> numbers2 = new CustomList<int> { 2, 4, 6 };
+            //CustomList<int> numbers1 = new CustomList<int> { 1, 3, 5 };
+            //CustomList<int> numbers2 = new CustomList<int> { 2, 4, 6 };
 
-            numbers1.Zip(numbers2);
+            //numbers1.Zip(numbers2);
 
-            foreach (var item in numbers1)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in numbers1)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            List<int> numbs = new List<int> { 2, 3, 56, 4, 32, };
-            numbs.Sort
+            //List<int> numbs = new List<int> { 2, 3, 56, 4, 32, };
+            //numbs.Sort
 
             
 

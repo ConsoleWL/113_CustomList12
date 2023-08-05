@@ -44,7 +44,7 @@ namespace CustomList
             }
         }
 
-        public void HelperIncreaseArray()
+        void HelperIncreaseArray()
         {
             capacity *= 2;
 
@@ -69,24 +69,25 @@ namespace CustomList
             count++;
         }
 
+
         // If Method returns -1 . Doesn't contain
         // Id method returns a number it means the spot where is the same item;
-        int HelperEquals(T item)
+        int HelperContains(T item)
         {
-            int number = -1;
+            int contains = -1;
             for (int i = 0; i < count; i++)
             {
                 if (items[i].Equals(item))
                 {
-                    number = i;
+                    contains = i;
                     i = count;
                 }
             }
-            return number;
+            return contains;
         }
         public bool Remove(T item)
         {
-            int result = HelperEquals(item);
+            int result = HelperContains(item);
 
             if (result == -1)
             {
@@ -95,22 +96,19 @@ namespace CustomList
             else
             {
                 T[] tempArray = new T[capacity];
-                int tempCount = 0;
 
-                for (int i = 0; i < result; i++)
+                for (int i = 0, j = 0; i < count; i++, j++)
                 {
-                    tempArray[i] = items[i];
-                    tempCount++;
+                    if (i == result)
+                    {
+                        i++;
+                    }
+
+                    tempArray[j] = items[i];
                 }
 
-                for (int i = tempCount; i < count - 1; i++)
-                {
-                    tempArray[i] = items[tempCount + 1];
-                    tempCount++;
-                }
-                count = tempCount;
+                count--;
                 items = tempArray;
-
                 return true;
             }
         }
