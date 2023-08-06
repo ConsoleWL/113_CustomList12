@@ -4,6 +4,23 @@
     {
         static void Main(string[] args)
         {
+
+            CustomList<int> rams = new CustomList<int>();
+            rams.Add(44);
+            rams.Add(755);
+            rams.Add(11);
+
+
+            CustomList<int> resutl = rams.BubbleSortImproved(rams);
+
+            Console.WriteLine(resutl.ToString());
+
+            //foreach (var item in resutl)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
             //CustomList<string> str = new CustomList<string>();
             //str.Add("hello1");
             //str.Add("hello2");
@@ -66,19 +83,19 @@
             //Console.WriteLine(numbers2.ToString());
 
             //Arrange
-            CustomList<string> names = new CustomList<string>();
-            names.Add("Boba");
-            names.Add("Nik");
-            names.Add("Tom");
+            //CustomList<string> names = new CustomList<string>();
+            //names.Add("Boba");
+            //names.Add("Nik");
+            //names.Add("Tom");
             //foreach (var item in names)
             //{
             //    Console.WriteLine(item);
             //}
 
             ////Set
-            
-            bool result = names.Remove("Bob");
-            Console.WriteLine(result);
+
+            //bool result = names.Remove("Bob");
+            //Console.WriteLine(result);
             //result1 = "Bob" == names[0]; ;
 
             ////Assert
@@ -97,10 +114,9 @@
             //numbs.Add(5);
             //numbs.Add(6);
 
-            //CustomList<int> rams = new CustomList<int>();
-            //rams.Add(4);
-            //rams.Add(7);
-            //rams.Add(11);
+
+
+
 
             //numbs.Zip(rams);
             //foreach (int n in numbs)
@@ -174,7 +190,7 @@
             //List<int> numbs = new List<int> { 2, 3, 56, 4, 32, };
             //numbs.Sort
 
-            
+
 
         }
     }

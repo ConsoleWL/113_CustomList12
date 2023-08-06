@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,7 +69,6 @@ namespace CustomList
             items[count] = item;
             count++;
         }
-
 
         // If Method returns -1 . Doesn't contain
         // Id method returns a number it means the spot where is the same item;
@@ -179,110 +179,34 @@ namespace CustomList
             }
 
             count += zipper.count;
-            items = tempArray; 
+            items = tempArray;
         }
 
-        //void Check<T>(T[] ourArray) where T : struct
-        //{
-        //    items = ourArray;
-        //}
+        // IComparer<T>
+        // EqualityComparer<T>.Default
+        //IEquatable 
 
+        public CustomList<T> BubbleSortImproved<T>(CustomList<T> list) where T : IComparable<T>
+        {
+            T temp;
 
-        //public void Sort<T>() where T : struct
-        //{
-            
-        //    T temp;
+            for (int i = 0; i < list.count - 1; i++)
+            {
+                for (int j = 1; j < list.count; j++)
+                {
+                    int result = list[i].CompareTo(list[j]);
 
-        //    for (int i = 0; i < count - 1; i++)
-        //    {
-        //        for (int j = 0; j < count; j++)
-        //        {
-        //            if (items[i] > items[j])
-        //            {
-        //                temp = items[i];
-        //                items[i] = items[j];
-        //                items[j] = temp;
-        //            }
-        //        }
-        //    }
-        //}
+                    if (result == 1)
+                    {
+                        temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;   
+                    }     
+                }
+            }
 
-        //void HelperIntArraySort<T>(T[] toSort) where T : struct
-        //{
-        //    int temp;
-        //    for (int i = 0; i < count - 1; i++)
-        //    {
-        //        for (int j = 0; j < count; j++)
-        //        {
-        //            if (toSort[i] > toSort[j])
-        //            {
-        //                temp = toSort[i];
-        //                toSort[i] = toSort[j];
-        //                toSort[j] = temp;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //CustomList<T> tempList = new CustomList<T>();
-
-
-
-        //for (int i = 0; i < count; i++)
-        //{
-        //    tempList.Add(items[i]);
-        //}
-
-        //for (int i = 0; i < zipper.count; i++)
-        //{
-        //    tempList.Add(zipper[i]);
-        //}
-
-        //T[] tempArray = new T[tempList.count];
-
-        //for (int i = 0; i < tempList.count; i++)
-        //{
-        //    tempArray[i] = tempList[i];
-        //}
-
-
-
-        // what the hell!!!!
-        //if (tempArray[1] > tempArray[2])
-
-        //HelperIntArraySort(tempArray);
-
-
-
-        //int length = count + zipper.count;
-
-        //T[] tempArray = new T[length];
-
-        //int counter = 0;
-
-        //for (int i = 0; i < count; i++)
-        //{
-        //    tempArray[i] = items[i];
-        //    counter++;
-        //}
-
-        //for (int j = 0; j < zipper.count; j++)
-        //{
-        //    tempArray[counter] = zipper[j];
-        //    counter++;
-        //}
-
-        //capacity = length;
-
-        //items = tempArray;
-
-        //HelperIntArraySort(items);
-
-        //for (int i = 0; i < count; i++)
-        //{
-        //    zipper.Add(items[i]);
-        //}
-        //count = zipper.count + count;
-        //items = zipper;
+            return list;
+        }
     }
 }
+
