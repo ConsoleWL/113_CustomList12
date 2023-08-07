@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 namespace CustomList
 {
     public class CustomList<T> : IEnumerable
-    {
+    {   
+        // Documentation about -Operator in PDF File:  CustomList_T_  - Operator Overloading.pdf
+
         //Member Variables (HAS A)
         private T[] items;
         private int capacity;
