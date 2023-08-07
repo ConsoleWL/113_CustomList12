@@ -11,43 +11,39 @@ namespace CustomListTests
     public class MinusOperatorTests
     {
         [TestMethod]
-        public void MinusOperator_FirstListIsLongerThanSecondList_ReturnTrue()
+        public void MinusOperator_SubValuesInSecondFromFirstListFirstListIsLonger_ReturnsModifiedFirstList()
         {
-            //Arrange
-            CustomList<int> numbers1 = new CustomList<int>();
-            numbers1.Add(1);
-            numbers1.Add(2);
+            // Arrange
+            CustomList<int> compareList = new CustomList<int> { 4 };
+            CustomList<int> listOne = new CustomList<int> { 4, 2 };
+            CustomList<int> listTwo = new CustomList<int> { 2 };
 
-            CustomList<int> numbers2 = new CustomList<int>();
-            numbers2.Add(1);
+            // Act
+            CustomList<int> result = listOne - listTwo;
 
-            bool result = false;
-
-            //Set
-            result = numbers1.Count > numbers2.Count;
-
-            //Assert
-            Assert.IsTrue(result);
+            // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList[i], result[i]);
+            }
         }
-
+        // shorter
         [TestMethod]
-        public void MinusOperator_SecondListIsLongerThanFirstList_ReturnTrue()
+        public void MinusOperator_SubValuesInSecondFromFirstListFirstListIsShorter_ReturnsModifiedFirstList()
         {
-            //Arrange
-            CustomList<int> numbers1 = new CustomList<int>();
-            numbers1.Add(1);
+            // Arrange
+            CustomList<int> compareList = new CustomList<int> { 4 };
+            CustomList<int> listOne = new CustomList<int> { 4, 2, 6 };
+            CustomList<int> listTwo = new CustomList<int> { 2, 7, 8, 6 };
 
-            CustomList<int> numbers2 = new CustomList<int>();
-            numbers2.Add(1);
-            numbers2.Add(2);
+            // Act
+            CustomList<int> result = listOne - listTwo;
 
-            bool result = false;
-
-            //Set
-            result = numbers2.Count > numbers1.Count;
-
-            //Assert
-            Assert.IsTrue(result);
+            // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList[i], result[i]);
+            }
         }
 
         [TestMethod]
@@ -61,7 +57,7 @@ namespace CustomListTests
             CustomList<int> numbers2 = new CustomList<int>();
             bool result = false;
 
-            //Set
+            //Act 
             CustomList<int> numbers3 = numbers - numbers2;
 
             result = numbers.Count == numbers3.Count;
@@ -74,20 +70,12 @@ namespace CustomListTests
         public void MinusOperator_RemoveOnlyInstancesThatAreInList_ReturnTrue()
         {
             //Arrange
-            CustomList<int> numbers = new CustomList<int>();
-            numbers.Add(3);
-            numbers.Add(3);
-            numbers.Add(3);
-
-            CustomList<int> numbers2 = new CustomList<int>();
-            numbers.Add(1);
-            numbers.Add(2);
-            numbers.Add(3);
-
+            CustomList<int> numbers = new CustomList<int> { 3, 3, 3 };
+            CustomList<int> numbers2 = new CustomList<int> { 1, 2, 3 };
             bool result = false;
 
-            //Set
-            // Can write better than this
+            //Act 
+            // Can write better than this ... maybe change it later
             CustomList<int> numbers3 = numbers - numbers2;
             result = numbers3[0] == numbers3[1];
 
@@ -102,7 +90,7 @@ namespace CustomListTests
             CustomList<string> names1 = new CustomList<string> { "Bob", "Mike", "Tom", "Tim", "Bill" };
             CustomList<string> names2 = new CustomList<string> { "Tom", "Tim" };
 
-            //Set 
+            //Act 
             CustomList<string> result = names1 - names2;
 
             //Assert

@@ -17,7 +17,7 @@ namespace CustomListTests
             CustomList<int> numbers1 = new CustomList<int> { 1, 2, 3 };
             CustomList<int> numbers2 = new CustomList<int> { 4, 5, 6 };
 
-            //Set
+            //Act
             numbers1.Zip(numbers2);
 
             //Assert
@@ -31,7 +31,7 @@ namespace CustomListTests
             CustomList<string> names = new CustomList<string> { "Bob", "Bill", "Brian" };
             CustomList<string> names2 = new CustomList<string> { "Tom", "Jhon", "Sam" };
 
-            //Set
+            //Act
             names.Zip(names2);
 
             // Assert
@@ -45,7 +45,7 @@ namespace CustomListTests
             CustomList<int> numbers = new CustomList<int> { 1, 3, 5 };
             CustomList<int> numbers2 = new CustomList<int> { 2, 4, 6 };
 
-            //Set
+            //Act
             numbers.Zip(numbers2);
 
             //Assert

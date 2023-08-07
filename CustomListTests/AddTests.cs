@@ -11,7 +11,7 @@ namespace CustomListTests
             //Arrange
             CustomList<string> names = new CustomList<string>();
 
-            //Set
+            //Act
             names.Add("Bob");
 
             //Assert
@@ -23,7 +23,8 @@ namespace CustomListTests
         {
             //Arrange
             CustomList<string> names = new CustomList<string>();
-            //Set
+
+            //Act
             names.Add("Bob");
 
             //Assert
@@ -35,7 +36,8 @@ namespace CustomListTests
         {
             //Arrange
             CustomList<string> names = new CustomList<string>();
-            //Set
+
+            //Act
             names.Add("Bob");
             names.Add("Tom");
 
@@ -51,7 +53,7 @@ namespace CustomListTests
             int capasityBeforeIncreasing = names.Capacity;
             int capasityAfterIncreasing;
 
-            //Set
+            //Act
             names.Add("Bob");
             names.Add("Bob");
             names.Add("Bob");
@@ -70,7 +72,7 @@ namespace CustomListTests
             //Arrange
             CustomList<string> names = new CustomList<string>();
 
-            //Set
+            //Act
             names.Add("Tom");
             names.Add("Tos");
             names.Add("Tod");
@@ -88,7 +90,7 @@ namespace CustomListTests
             //Arrange
             CustomList<int> numbers = new CustomList<int> { 1, 2, 3, 4 };
 
-            //Set
+            //Act
             numbers.Add(5);
 
             //Assert

@@ -14,17 +14,12 @@ namespace CustomListTests
         public void PlusOperator_FirstListIsLongerThanSecondOne_ReturnTrue()
         {
             //Arrange
-            CustomList<int> one = new CustomList<int>();
-            one.Add(1);
-            one.Add(2);
-            one.Add(3);
-            CustomList<int> two = new CustomList<int>();
-            two.Add(4);
-            two.Add(5);
+            CustomList<int> one = new CustomList<int> { 1, 2, 3 };
+            CustomList<int> two = new CustomList<int> { 4, 5 };
             CustomList<int> three = one + two;
             bool result = false;
 
-            //Set
+            //Act
             if (three[0] == one[0] && three[1] == one[1] && three[2] == one[2] && three[3] == two[0] && three[4] == two[1])
             {
                 result = true;
@@ -35,22 +30,17 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void PlusOperator_SecondListIsLongerThanTheFirstList()
+        public void PlusOperator_SecondListIsLongerThanTheFirstList_ReturnsListCountEqualsFive()
         {
             //Arrange
-            CustomList<int> one = new CustomList<int>();
-            one.Add(1);
-            one.Add(2);
-            CustomList<int> two = new CustomList<int>();
-            two.Add(3);
-            two.Add(4);
-            two.Add(5);
-            bool result = false;
-            //Set
-            result = two.Count > one.Count;
+            CustomList<int> one = new CustomList<int> { 1, 2 };
+            CustomList<int> two = new CustomList<int> { 3, 4, 5 };
 
+            //Act
+            CustomList<int> result = one + two;
+            
             //Assert
-            Assert.IsTrue(result);
+            Assert.AreEqual(5, result.Count);
         }
 
         [TestMethod]
@@ -64,7 +54,7 @@ namespace CustomListTests
             CustomList<int> numbers2 = new CustomList<int>();
             bool result = false;
 
-            //Set
+            //Act
             CustomList<int> numbers3 = numbers + numbers2;
 
             result = numbers.Count == numbers3.Count;
@@ -80,7 +70,7 @@ namespace CustomListTests
             CustomList<int> numbers1 = new CustomList<int> { 1, 2, 3 };
             CustomList<int> numbers2 = new CustomList<int> { 4, 4 };
 
-            //Set
+            //Act
             CustomList<int> result = numbers1 + numbers2;
 
             //Assert

@@ -1,19 +1,21 @@
-﻿namespace CustomList
+﻿using System.Threading.Tasks.Dataflow;
+
+namespace CustomList
 {
     internal class Program
     {
         static void Main(string[] args)
         {
 
-            CustomList<int> rams = new CustomList<int>();
-            rams.Add(44);
-            rams.Add(755);
-            rams.Add(11);
+            CustomList<int> list = new CustomList<int>();
+            list.Add(44);
+            list.Add(755);
+            list.Add(11);
+            
+           
+            CustomList<int> result = list.Sort(list);
 
-
-            CustomList<int> resutl = rams.BubbleSortImproved(rams);
-
-            Console.WriteLine(resutl.ToString());
+            Console.WriteLine(list.ToString());
 
             //foreach (var item in resutl)
             //{

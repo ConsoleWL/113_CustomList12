@@ -27,6 +27,7 @@ namespace CustomList
         }
 
         //Member Methods (CAN DO)
+        // Indexer
         public T this[int index]
         {
             get
@@ -44,7 +45,8 @@ namespace CustomList
                     throw new Exception($"Can't set an item. Out of list range. The length of list is {items.Length}");
             }
         }
-
+        // helper method. Calls when Array is full
+        // SRP 
         void HelperIncreaseArray()
         {
             capacity *= 2;
@@ -59,6 +61,7 @@ namespace CustomList
             items = tempArray;
         }
 
+        // Add item to the list. if List is full calls HelperIncreaseArray()
         public void Add(T item)
         {
             if (count == capacity)
@@ -71,7 +74,8 @@ namespace CustomList
         }
 
         // If Method returns -1 . Doesn't contain
-        // Id method returns a number it means the spot where is the same item;
+        // If method returns a number. It's the index in the array where item is
+        // SRP
         int HelperContains(T item)
         {
             int contains = -1;
@@ -85,6 +89,8 @@ namespace CustomList
             }
             return contains;
         }
+
+        // Removes items from the list
         public bool Remove(T item)
         {
             int result = HelperContains(item);
@@ -113,6 +119,7 @@ namespace CustomList
             }
         }
 
+        
         public override string ToString()
         {
             string listToString = "";
@@ -153,6 +160,8 @@ namespace CustomList
             return firstList;
         }
 
+        // Zips one item from the first List and one from the second list
+        // If item one list is longer. it zips first and then add leftovers
         public void Zip(CustomList<T> zipper)
         {
             T[] tempArray = new T[count + zipper.count];
@@ -184,9 +193,30 @@ namespace CustomList
 
         // IComparer<T>
         // EqualityComparer<T>.Default
-        //IEquatable 
+        // IEquatable 
+        // I am
+        //public void Sort2<T>() where T : IComparable<T>
+        //{
+        //    T temp;
 
-        public CustomList<T> BubbleSortImproved<T>(CustomList<T> list) where T : IComparable<T>
+        //    for (int i = 0; i < count - 1; i++)
+        //    {
+        //        for (int j = 1; j < count; j++)
+        //        {
+        //            int result = items[i]);
+
+        //            if (result == 1)
+        //            {
+        //                temp = list[i];
+        //                list[i] = list[j];
+        //                list[j] = temp;   
+        //            }     
+        //        }
+        //    }
+        //}
+        // I am using BubbleSort algorithm . What it does 
+        // Comparer<T>.Default
+        public CustomList<T> Sort<T>(CustomList<T> list) where T : IComparable<T>
         {
             T temp;
 
@@ -200,8 +230,8 @@ namespace CustomList
                     {
                         temp = list[i];
                         list[i] = list[j];
-                        list[j] = temp;   
-                    }     
+                        list[j] = temp;
+                    }
                 }
             }
 

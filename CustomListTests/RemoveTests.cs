@@ -22,7 +22,7 @@ namespace CustomListTests
             int countBeforeRemove = names.Count;
             int countAfterRemove;
 
-            // Set
+            //Act
             names.Remove("Tom");
             countAfterRemove = names.Count;
 
@@ -39,7 +39,8 @@ namespace CustomListTests
             names.Add("Bob");
             names.Add("Tom");
             bool result = false;
-            //Set
+
+            //Act
             result = names.Remove("Bob");
             // Assert
             Assert.IsTrue(result);
@@ -55,7 +56,7 @@ namespace CustomListTests
             names.Add("Bob");
             int countBeforeRemoving = names.Count;
 
-            // Set
+            //Act
             names.Remove("Tom");
             int countAfterRemoving = names.Count;
 
@@ -72,7 +73,7 @@ namespace CustomListTests
             names.Add("Bob");
             names.Add("Tom");
 
-            //Set
+            //Act
             names.Remove("Nikita");
 
             //Assert
@@ -89,14 +90,12 @@ namespace CustomListTests
             names.Add("Bob");
             bool result1 = false;
 
-
-            //Set
+            //Act
             names.Remove("Bob");
             if (names[0] == "Bob" && names[1] == "Bob")
             {
                 result1 = true;
             }
-
 
             //Assert
             Assert.IsTrue(result1);
@@ -109,7 +108,7 @@ namespace CustomListTests
             CustomList<int> numbers = new CustomList<int> { 1, 2, 3, 4, 5 };
             bool results = true;
 
-            // Set
+            //Act
             results = numbers.Remove(7);
 
             // Assert

@@ -18,7 +18,7 @@ namespace CustomListTests
             names.Add("Bob");
             bool result = false;
 
-            //Set
+            //Act
             result = names.ToString() == "Bob";
 
             //Assert
@@ -40,10 +40,11 @@ namespace CustomListTests
             string numbersString = "";
             string numbersStringFromList = "";
 
-            //Set 
+            //Act
             numbersString = $"{number1}{number2}{number3}";
             numbersStringFromList = numbers.ToString();
             result = numbersString == numbersStringFromList;
+
             //Assert
             Assert.IsTrue(result);
         }
@@ -55,8 +56,10 @@ namespace CustomListTests
             CustomList<string> names = new CustomList<string>();
             string emptyString = "";
             bool result = false;
-            //Set
+
+            //Act
             result = names.ToString() == "";
+
             //Assert
             Assert.IsTrue(result);
         }
