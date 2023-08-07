@@ -17,6 +17,8 @@ namespace CustomList
 
         public int Count { get => count; }
         public int Capacity { get => capacity; private set => capacity = value; }
+        // copied from Amy'screen but it wasn't in the task;
+        public T[] Items { get { return items; } set { items = value; } }
 
         //Constructor
         public CustomList()
@@ -119,7 +121,7 @@ namespace CustomList
             }
         }
 
-        
+
         public override string ToString()
         {
             string listToString = "";
@@ -191,31 +193,23 @@ namespace CustomList
             items = tempArray;
         }
 
-        // IComparer<T>
-        // EqualityComparer<T>.Default
-        // IEquatable 
-        // I am
-        //public void Sort2<T>() where T : IComparable<T>
-        //{
-        //    T temp;
 
-        //    for (int i = 0; i < count - 1; i++)
-        //    {
-        //        for (int j = 1; j < count; j++)
-        //        {
-        //            int result = items[i]);
+        // I am using BubbleSort algorithm . What it does it checks firts item with the one on the right
+        // And if the item on the left is > item on the right. Then we swap them.
+        // 5, 3, 4, 7
+        // 5 > 3 So we need to swap them. We create a temp variable  and we put 5 in there... temp = [5];
+        // then to [0] index we assign 3 .. [0] = [1];
+        // then to [1] index we assign what is in the temp.. [1] = temp;
+        // result: 3, 5, 4, 7
+        // then we do the same logic for 5 and 4 and etc...
 
-        //            if (result == 1)
-        //            {
-        //                temp = list[i];
-        //                list[i] = list[j];
-        //                list[j] = temp;   
-        //            }     
-        //        }
-        //    }
-        //}
-        // I am using BubbleSort algorithm . What it does 
-        // Comparer<T>.Default
+
+        // I was trying to make that Mehtos better by finding more results about IComparer... but I decided to give up... 
+        // Custom<int> unsorted = new Custom<int>{3,5,3,2,6,2,};
+        // Custom<int> sorted = unsorted.Sort(unsorted); I think this is so bad. but it works
+        // I don't like the way we need to call theat method from a variable and then  pass in argument the same variable we need to store
+        // and then all of that save it to new CustomLis<T>... 
+
         public CustomList<T> Sort<T>(CustomList<T> list) where T : IComparable<T>
         {
             T temp;
