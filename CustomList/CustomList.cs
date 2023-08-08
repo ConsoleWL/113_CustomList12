@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable
-    {   
+    public class CustomList<T> : IEnumerable where T : IComparable<T>
+    {
         // Documentation about -Operator in PDF File:  CustomList_T_  - Operator Overloading.pdf
 
         //Member Variables (HAS A)
@@ -18,7 +18,7 @@ namespace CustomList
         private int count;
 
         public int Count { get => count; }
-        public int Capacity { get => capacity; private set => capacity = value; }
+        public int Capacity { get => capacity; }
         // copied from Amy'screen but it wasn't in the task;
         public T[] Items { get { return items; } set { items = value; } }
 
@@ -39,14 +39,14 @@ namespace CustomList
                 if (index >= 0 && index < count)
                     return items[index];
                 else
-                    throw new Exception($"Can't get an item. Out of list range. The length of list is {items.Length}");
+                    throw new IndexOutOfRangeException();
             }
             set
             {
                 if (index >= 0 && index < count)
                     items[index] = value;
                 else
-                    throw new Exception($"Can't set an item. Out of list range. The length of list is {items.Length}");
+                    throw new IndexOutOfRangeException();
             }
         }
         // helper method. Calls when Array is full
@@ -80,45 +80,38 @@ namespace CustomList
         // If Method returns -1 . Doesn't contain
         // If method returns a number. It's the index in the array where item is
         // SRP
-        int HelperContains(T item)
+        int IndexOf(T item)
         {
-            int contains = -1;
+            int index = -1;
             for (int i = 0; i < count; i++)
             {
                 if (items[i].Equals(item))
                 {
-                    contains = i;
-                    i = count;
+                    index = i;
+                    break;
                 }
             }
-            return contains;
+            return index;
         }
 
         // Removes items from the list
         public bool Remove(T item)
         {
-            int result = HelperContains(item);
+            int index = IndexOf(item);
 
-            if (result == -1)
+            if (index == -1)
             {
                 return false;
             }
             else
             {
-                T[] tempArray = new T[capacity];
-
-                for (int i = 0, j = 0; i < count; i++, j++)
+                for (int i = index; i < count - 1; i++)
                 {
-                    if (i == result)
-                    {
-                        i++;
-                    }
-
-                    tempArray[j] = items[i];
+                    items[i] = items[i + 1];
                 }
 
                 count--;
-                items = tempArray;
+                items[count] = default(T);
                 return true;
             }
         }
@@ -137,7 +130,7 @@ namespace CustomList
 
         public IEnumerator GetEnumerator()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 yield return items[i];
             }
@@ -195,6 +188,27 @@ namespace CustomList
             items = tempArray;
         }
 
+        public CustomList<T> Zip2(CustomList<T> listTwo)
+        {
+            CustomList<T> zippedList = new();
+            int totalLength = Math.Max(count, listTwo.Count);
+
+            for (int i = 0; i < totalLength; i++)
+            {   // I didn't get why we need I < count in here?
+                if (i < count)
+                {
+                    zippedList.Add(Items[i]);
+                }
+                // I didn't get why we need I < count in here?
+                if (i < listTwo.Count)
+                {
+                    zippedList.Add(listTwo[i]);
+                }
+            }
+
+            return zippedList;
+        }
+
 
         // I am using BubbleSort algorithm . What it does it checks firts item with the one on the right
         // And if the item on the left is > item on the right. Then we swap them.
@@ -218,7 +232,7 @@ namespace CustomList
 
             for (int i = 0; i < list.count - 1; i++)
             {
-                for (int j = 1; j < list.count; j++)
+                for (int j = i + 1; j < list.count; j++)
                 {
                     int result = list[i].CompareTo(list[j]);
 
@@ -232,6 +246,28 @@ namespace CustomList
             }
 
             return list;
+        }
+
+        // THIS IS THE SORT!!!!!
+        public void Sort2()
+        { 
+            T temp;
+
+            for (int i = 0; i < count - 1; i++)
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    int result = items[i].CompareTo(items[j]);
+
+                    if (result == 1)
+                    {
+                        temp = items[i];
+
+                        items[i] = items[j];
+                        items[j] = temp;
+                    }
+                }
+            }
         }
     }
 }
